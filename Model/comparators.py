@@ -13,11 +13,11 @@ def string_cmp_fn(multiplier):
             if string_val in advisor_array_str:
                 score+=1
         #loose comparison - advisee to advisor then advisor to advisee
-        compare_str = advisor_array_str.join(" ")
+        compare_str = " ".join(advisor_array_str)
         for string_val in advisee_array_str:
             if string_val in compare_str:
                 score +=1
-        compare_str = advisee_array_str.join(" ")
+        compare_str = " ".join(advisee_array_str)
         for string_val in advisor_array_str:
             if string_val in compare_str:
                 score+=1

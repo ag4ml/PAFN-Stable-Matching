@@ -1,5 +1,6 @@
 from Model.comparators import string_cmp_fn
 from Model.comparators import num_cmp_fn
+import collections
 
 excel_mapping = {
     'Email': ('C', None),
@@ -9,8 +10,8 @@ excel_mapping = {
     'Minor(s)':('U', string_cmp_fn(1)),
     'Region':('H', string_cmp_fn(1)),
     'Hometown':('I', string_cmp_fn(1)),
-    'Preference: Same Major': ('P', num_cmp_fn(3)),
-    'Preference: Advising Style':('Q', num_cmp_fn(2)),
+    'Preference: Same Major': ('P', num_cmp_fn(4)),
+    'Preference: Advising Style':('Q', num_cmp_fn(3)),
     'Preference: Watching Movies':('J', num_cmp_fn(1)),
     'Preference: Eating Together':('K', num_cmp_fn(1)),
     'Preference: Study Sessions': ('L', num_cmp_fn(1)),
@@ -34,3 +35,22 @@ excel_mapping = {
     'Rank4':('AI', None),
     'Rank5':('AJ', None)
 }
+
+excel_display_mapping = [
+    ('Name', ('B', None)),
+    ('Nickname', ('C', None)),
+    ('Email', ('D', None)),
+    ('School',('G', None)),
+    ('Ethnicity', ('I', None)),
+    ('Region', ('J', None)),
+    ('Hometown', ('K', None)),
+    ('Anticipated Major(s)', ('H', None)),
+    ('Pre-X', ('AA', None)),
+    ('Funnest fact', ('L', None)),
+    ('Favorite TV Shows/Movies', ('M', None)),
+    ('Most Nervous About', ('N', None)),
+    ('My Advisor Should Know', ('O', None)),
+    ('Want To Be Involved In', ('P', None)),
+    ('Hobbies And Interests', ('Z', None))
+]
+excel_display_ordered = collections.OrderedDict(excel_display_mapping)

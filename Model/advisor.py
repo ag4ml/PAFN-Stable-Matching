@@ -1,18 +1,18 @@
 class Advisor:
-    def __init__(self, props, advisor_name, email, id):
+    def __init__(self, props, advisor_name, email, id, quota):
         self.properties = props
         self.name = advisor_name
         self.id = id
         self.email = email
         self.pairings = []
-        self.quota = 5
+        self.quota = quota
 
     def rate_against(self, advisee):
         total_score = 0
-        for property_name, property in self.properties:
-            advisor_val = property[0]
+        for property_name, prop in self.properties.items():
+            advisor_val = prop[0]
             advisee_val = advisee.properties[property_name][0]
-            total_score += property[1](advisor_val, advisee_val)
+            total_score += prop[1](advisor_val, advisee_val)
         return total_score
 
     def unmatch_unqualified(self):
@@ -32,4 +32,4 @@ class Advisor:
             self.pairings = self.pairings[0:self.quota]
 
     def __repr__(self):
-        return "Name: {}\n\tPairings: {}".format(self.name, ",".join([pairing[0].name for pairing in self.pairings]))
+        return "Name: {}\n\tProperties: {} \n\tPairings: {}".format(self.name, str(self.properties) ,",".join([pairing[0].name for pairing in self.pairings]))
